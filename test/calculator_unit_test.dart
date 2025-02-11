@@ -6,11 +6,18 @@ void main() {
   group("String calculator", () {
     StringCalculator stringCalculator = StringCalculator();
     test("if String is empty", () {
-      try {
-        stringCalculator.add(" ");
-      } catch (e) {
-        expect(e, CalculatorExceptions.kEmptyString);
-      }
+      final result = stringCalculator.add(" ");
+      expect(result, 0);
+    });
+
+    test("if String is 1", () {
+      final result = stringCalculator.add("1");
+      expect(result, 1);
+    });
+
+    test("if String is 1,5", () {
+      final result = stringCalculator.add("1,5");
+      expect(result, 6);
     });
 
     test("if String is invalid ", () {
@@ -19,11 +26,6 @@ void main() {
       } catch (e) {
         expect(e, CalculatorExceptions.kInvalidString);
       }
-    });
-
-    test('if String is 1,2,3', () {
-      final int result = stringCalculator.add("1,2,3");
-      expect(result, 6);
     });
 
     test('if String contain newline \n1\n2,3', () {

@@ -3,7 +3,7 @@ import 'package:string_calculator/string_calculator/calculator_exceptions.dart';
 class StringCalculator {
   int add(String numbers) {
     if (numbers.trim().isEmpty) {
-      throw CalculatorExceptions.kEmptyString;
+      return 0;
     }
 
     if (!numbers.contains(RegExp("[0-9]"))) {
